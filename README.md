@@ -15,4 +15,5 @@ have been moved, and can be accessed at the links below:
 
 This fork simply changes the thinning parameter passed to rstan::sampling to increase the amount of saved data 
 (the original code saved 250 samples, which seemed low. Increased to 2500)
+
 For more information go to the OG fork.
