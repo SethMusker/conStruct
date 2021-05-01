@@ -134,12 +134,13 @@ conStruct <- function(spatial=TRUE,K,freqs,geoDist=NULL,coords,prefix="",n.chain
 		save(data.block,file=paste0(prefix,"_data.block.Robj"))
 	}
 	stan.model <- pick.stan.model(spatial,K)
+	## increase posterior sampling rate 10X by decreasing the thin parameter (ensures 2500 post-warmup samples saved)
 	model.fit <- rstan::sampling(object = stanmodels[[stan.model]],
 							 	 refresh = min(floor(n.iter/10),500),
 							 	 data = data.block,
 							 	 iter = n.iter,
 							 	 chains = n.chains,
-							 	 thin = ifelse(n.iter/500 > 1,floor(n.iter/500),1),
+							 	 thin = ifelse(n.iter/5000 > 1,floor(n.iter/5000),1),
 							 	 save_warmup = FALSE,
 							 	 ...)
 	conStruct.results <- get.conStruct.results(data.block,model.fit,n.chains)
