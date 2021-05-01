@@ -240,10 +240,10 @@ make.admix.pie.plot <- function(admix.proportions,coords,layer.colors=NULL,radii
 		graphics::par(mar=mar)
 	}
 	if(is.null(x.lim)){
-		x.lim <- c(min(coords[,1]) - 1, max(coords[,1]) + 1)
+		x.lim <- c(min(coords[,1]) - 0.05, max(coords[,1]) + 0.05)
 	}
 	if(is.null(y.lim)){
-		y.lim <- c(min(coords[,2]) - 1, max(coords[,2]) + 1)
+		y.lim <- c(min(coords[,2]) - 0.05, max(coords[,2]) + 0.05)
 	}
 	suppressWarnings(
 		caroline::pies(pie.list,x0=coords[,1],y0=coords[,2],
