@@ -295,7 +295,7 @@ calc.covariance <- function(freqs){
 	allelic.covariance <- (1 - 1/nrow(freqs)) * stats::cov(x,use="pairwise.complete.obs") - 
 									(1/2) * outer( colMeans(x,na.rm=TRUE), 1-colMeans(x,na.rm=TRUE), "*" ) -
 									(1/2) * outer(1-colMeans(x,na.rm=TRUE), colMeans(x,na.rm=TRUE), "*") + 1/4
-	diag(allelic.covariance) <- 0.25
+	diag(allelic.covariance) <- NA
 	return(allelic.covariance)
 }
 
